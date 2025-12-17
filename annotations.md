@@ -42,3 +42,8 @@ services:
 - `docker compose up -d` - Sobe os containers em segundo plano
 - `docker compose stop` - Para os containers em execução
 - `docker compose down` - Para e deleta os containers
+
+## Prisma
+
+- `npx prisma migrate dev` - Roda as migrations pendentes no banco de dados de desenvolvimento
+- `npx prisma migrate build` - Roda as migrations pendentes no banco de dados de produção
