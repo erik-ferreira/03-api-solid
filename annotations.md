@@ -18,3 +18,27 @@ O -p serve para mapear a porta do container com a porta da máquina local, quand
 - `docker start <nome ou id do container>` - Inicia um container parado
 - `docker stop <nome ou id do container>` - Para um container em execução
 - `docker rm <nome ou id do container>` - Remove um container em execução
+
+## Docker Compose
+
+Arquivo `docker-compose.yml` para subir o Postgres sem ter que ficar digitando o comando todo hora
+
+```yml
+version: "3"
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=apisolid
+```
+
+### Comandos
+
+- `docker compose up -d` - Sobe os containers em segundo plano
+- `docker compose stop` - Para os containers em execução
+- `docker compose down` - Para e deleta os containers
