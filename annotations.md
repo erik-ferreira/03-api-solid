@@ -47,3 +47,29 @@ services:
 
 - `npx prisma migrate dev` - Roda as migrations pendentes no banco de dados de desenvolvimento
 - `npx prisma migrate build` - Roda as migrations pendentes no banco de dados de produção
+
+## Princípios SOLID
+
+- `D` - Dependency Inversion Principle (Princípio da Inversão de Dependência)
+  - Ex: Meu caso de uso para criar um usuário depende do user repository para criar um usuário no banco de dados. Nesse princípio, vai mudar como o meu caso de uso tem acesso as dependências. Ao invés do meu caso de uso instanciar e usar o user repository diretamente, ele vai receber essa instância por parâmetro no construtor de uma classe.
+
+```ts
+class RegisterUserCas {
+  private userRepository: any
+
+  constructor(userRepository: any) {}
+    this.userRepository = userRepository
+  }
+}
+
+
+/*
+Quando eu quero que um parâmetro recebido no meu construtor, vire automaticamente uma propriedade
+da minha classe, basta informar uma keyword de acesso (private, public, protected) antes do nome do parâmetro,
+ficando dessa forma:
+*/
+
+class RegisterUserCas {
+  constructor(private userRepository: any) {}
+}
+```
