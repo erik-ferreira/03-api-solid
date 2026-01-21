@@ -73,3 +73,51 @@ class RegisterUserCas {
   constructor(private userRepository: any) {}
 }
 ```
+
+## Testes
+
+```js
+describe("Register Use Case", () => {
+  it("should hash user password upon registration", async () => {
+    const userRepository = new PrismaUsersRepository()
+    const registerUseCase = new RegisterUseCase(userRepository)
+
+    const { user } = await registerUseCase.execute({
+      name: "John Doe",
+      email: "johndoe@example.com",
+      password: "123456",
+    })
+
+    const isPasswordCorrectlyHashed = await compare(
+      "123456",
+      user.password_hash,
+    )
+
+    expect(isPasswordCorrectlyHashed).toBe(true)
+  })
+})
+```
+
+- Teste unitário testa uma única parte isolada da aplicação
+- Teste unitário nunca vai tocar em camadas externas da aplicação
+- Ao usar o PrismaUsersRepository, eu estou testando a integração do meu caso de uso com o banco de dados, ou seja, não é um teste unitário, e sim um teste de integração
+
+```js
+const registerUseCase = new RegisterUseCase({
+  async findByEmail(email) {
+    return null
+  },
+
+  async create(data) {
+    return {
+      id: "user-1",
+      name: data.name,
+      email: data.email,
+      password_hash: data.password_hash,
+      created_at: new Date(),
+    }
+  },
+})
+```
+
+- Dessa forma eu consigo criar um repositório fake, que implementa a mesma interface do repositório real, mas não toca no banco de dados, assim eu consigo isolar o meu caso de uso e testar apenas ele
