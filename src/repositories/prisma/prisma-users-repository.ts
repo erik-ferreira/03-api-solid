@@ -1,0 +1,22 @@
+import * as Prisma from "generated/prisma/models"
+
+import { UsersRepository } from "../users-repository"
+
+import { prisma } from "@/lib/prisma"
+import { User } from "generated/prisma/browser"
+
+export class PrismaUsersRepository implements UsersRepository {
+  async create(data: Prisma.UserCreateInput) {
+    const user = await prisma.user.create({ data })
+
+    return user
+  }
+
+  async findByEmail(email: string) {
+    const user = prisma.user.findUnique({
+      where: { email },
+    })
+
+    return user
+  }
+}
