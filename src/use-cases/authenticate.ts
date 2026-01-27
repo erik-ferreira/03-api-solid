@@ -1,13 +1,17 @@
+import { compare } from "bcryptjs"
+
+import { User } from "generated/prisma/browser"
 import { UsersRepository } from "@/repositories/users-repository"
 import { InvalidCredentialError } from "./errors/invalid-credential-error"
-import { compare } from "bcryptjs"
 
 interface AuthenticateUseCaseRequest {
   email: string
   password: string
 }
 
-interface AuthenticateUseCaseResponse {}
+interface AuthenticateUseCaseResponse {
+  user: User
+}
 
 export class AuthenticateUseCase {
   constructor(private usersRepository: UsersRepository) {}
