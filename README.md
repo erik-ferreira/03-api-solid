@@ -7,7 +7,7 @@ Gympass style app.
 Funcionalidades da aplicação, ou seja, o que vai ser possível do usuário fazer na aplicação
 
 - [x] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
+- [x] Deve ser possível se autenticar;
 - [ ] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado;
 - [ ] Deve ser possível o usuário ver seu histórico de check-ins;
@@ -32,7 +32,7 @@ São caminhos e condições que cada requisito funcional pode tomar
 Requisitos que não partem do cliente, são mais técnicos do que funcionalidades, como qual banco utilizar, qual estratégia de autenticação e etc
 
 - [x] A senha precisa estar criptografada;
-- [ ] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
+- [x] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
 - [ ] Todas as listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
 
