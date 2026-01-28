@@ -121,3 +121,7 @@ const registerUseCase = new RegisterUseCase({
 ```
 
 - Dessa forma eu consigo criar um repositório fake, que implementa a mesma interface do repositório real, mas não toca no banco de dados, assim eu consigo isolar o meu caso de uso e testar apenas ele
+
+## Factory Pattern
+
+- Fábrica de criação de coisas comuns que tem muitas dependências
