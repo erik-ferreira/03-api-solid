@@ -125,3 +125,20 @@ const registerUseCase = new RegisterUseCase({
 ## Factory Pattern
 
 - Fábrica de criação de coisas comuns que tem muitas dependências
+
+## TDD
+
+- Test-driven development - Desenvolvimento dirigido a testes
+- Se eu desenvolvo o teste de alguma funcionalidade antes da implementação, o teste ajuda a validar se a implementação ta ok ou não
+
+### 1º etapa - red
+
+- Erro no teste, funcionalidade não esta implementada ainda
+
+### 2º etapa - green
+
+- Desenvolver o mínimo possível para que os testes passem
+
+### 3º etapa - refactor
+
+- Para melhorar o código
