@@ -3,7 +3,7 @@ import { CheckIn } from "generated/prisma/browser"
 import { GymsRepository } from "@/repositories/gyms-repository"
 import { CheckInsRepository } from "@/repositories/check-ins-repository"
 
-import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinats"
+import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates"
 
 import { MaxDistanceError } from "./errors/max-distance-error"
 import { ResourceNotFoundError } from "./errors/resources-not-found-error"
