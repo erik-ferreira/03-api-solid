@@ -24,7 +24,7 @@ São caminhos e condições que cada requisito funcional pode tomar
 - [x] O usuário não deve poder se cadastrar com email duplicado;
 - [x] O usuário não pode fazer dois check-in no mesmo dia;
 - [x] O usuário não pode fazer check-in se não estiver perto(100m) da academia;
-- [ ] O check-in só pode ser validado até 20 minutos após ser criado;
+- [x] O check-in só pode ser validado até 20 minutos após ser criado;
 - [ ] O check-in só pode ser validado por administradores;
 - [ ] A academia só pode ser cadastrada com administradores;
 
