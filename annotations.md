@@ -142,3 +142,46 @@ const registerUseCase = new RegisterUseCase({
 ### 3º etapa - refactor
 
 - Para melhorar o código
+
+## Testes E2E
+
+- Testes E2E precisam bater no banco de dados, se tiver muito mock, não é uma boa estratégia, deve ser o mais fiel possível; Não utilizar o banco de produção da aplicação, deve se criar um banco para testes.
+- Um teste não deve afetar outros testes, ou seja, um teste que cria usuários, não pode afetar um teste que lista usuários
+
+### Suíte de testes
+
+- Um arquivo com vários testes ja é uma suíte de testes
+- Uma boa estratégia pode ser criar um ambiente isolado no banco de dados para cada suíte de testes; Dessa forma não abro mão do isolamento e nem da performance;
+- Pode-se utilizar o conceito de Test Environment, que tem tanto no jest quanto no vitest; Com essa funcionalidade, eu posso dizer que todos os testes que estiverem naquele arquivo específico, devem usar variáveis específicas.
+
+### Configurações
+
+- No `vite.config.ts`:
+
+```ts
+export default defineConfig({
+  plugins: [tsconfigPaths()],
+  test: {
+    dir: "src",
+    projects: [
+      {
+        // property to extend only the test settings
+        extends: true,
+        test: {
+          name: "unit",
+          dir: "src/use-cases",
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: "e2e",
+          dir: "src/http/controllers",
+          environment:
+            "./prisma/vitest-environment-prisma/prisma-test-environment.ts",
+        },
+      },
+    ],
+  },
+})
+```
