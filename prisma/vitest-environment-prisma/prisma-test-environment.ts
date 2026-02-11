@@ -19,7 +19,7 @@ function generateDatabaseUrl(schema: string) {
 
 export default <Environment>{
   name: "prisma",
-  transformMode: "ssr",
+  viteEnvironment: "ssr",
   // function setup execute when start tests - create database
   async setup() {
     const schema = randomUUID()
