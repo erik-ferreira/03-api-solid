@@ -185,3 +185,10 @@ export default defineConfig({
   },
 })
 ```
+
+## Ambiente de CI/CD
+
+- CI = Continuous Integration
+- CD = Continuous Delivery / Continuous Deployment
+
+- Ambiente de Integração Contínua, onde o código é integrado e testado automaticamente a cada mudança, garantindo que o código esteja sempre funcionando e que os testes estejam passando
