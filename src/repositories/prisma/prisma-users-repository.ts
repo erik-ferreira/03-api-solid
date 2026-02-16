@@ -3,7 +3,6 @@ import * as Prisma from "generated/prisma/models"
 import { UsersRepository } from "../users-repository"
 
 import { prisma } from "@/lib/prisma"
-import { User } from "generated/prisma/browser"
 
 export class PrismaUsersRepository implements UsersRepository {
   async create(data: Prisma.UserCreateInput) {

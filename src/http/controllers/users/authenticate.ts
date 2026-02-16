@@ -30,7 +30,7 @@ export async function authenticate(
       },
     )
 
-    return reply.status(201).send({ token })
+    return reply.status(200).send({ token })
   } catch (error) {
     if (error instanceof InvalidCredentialError) {
       return reply.status(400).send()

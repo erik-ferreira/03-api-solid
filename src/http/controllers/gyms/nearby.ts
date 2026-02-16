@@ -1,7 +1,6 @@
 import z from "zod"
 import { FastifyReply, FastifyRequest } from "fastify"
 
-import { makeSearchGymsUseCaseUseCase } from "@/use-cases/factories/make-search-gyms-use-case"
 import { makeFetchNearbyGymsUseCase } from "@/use-cases/factories/make-fetch-nearby-gyms-use-case"
 
 export async function nearby(request: FastifyRequest, reply: FastifyReply) {
@@ -18,7 +17,7 @@ export async function nearby(request: FastifyRequest, reply: FastifyReply) {
 
   const fetchNearbyGymsUseCase = makeFetchNearbyGymsUseCase()
 
-  const gyms = await fetchNearbyGymsUseCase.execute({
+  const { gyms } = await fetchNearbyGymsUseCase.execute({
     userLatitude: latitude,
     userLongitude: longitude,
   })

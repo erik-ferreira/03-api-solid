@@ -41,7 +41,8 @@ describe("Check-in History (e2e)", () => {
     })
 
     const response = await request(app.server)
-      .post("/check-ins/history")
+      .get("/check-ins/history")
+      .query({ page: 1 })
       .set("Authorization", `Bearer ${token}`)
       .send()
 

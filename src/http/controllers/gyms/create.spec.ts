@@ -22,7 +22,7 @@ describe("Create Gym (e2e)", () => {
       .send({
         title: "JavaScript Gym",
         description: "Some description",
-        phone: 85900998877,
+        phone: "85900998877",
         latitude: -3.795898020855769,
         longitude: -38.49401025690071,
       })

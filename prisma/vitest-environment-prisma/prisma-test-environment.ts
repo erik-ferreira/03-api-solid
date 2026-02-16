@@ -1,9 +1,11 @@
-import { prisma } from "@/lib/prisma"
 import "dotenv/config"
+
 import { execSync } from "node:child_process"
 import { randomUUID } from "node:crypto"
 
 import type { Environment } from "vitest/environments"
+
+import { prisma } from "@/lib/prisma"
 
 function generateDatabaseUrl(schema: string) {
   if (!process.env.DATABASE_URL) {
@@ -25,8 +27,6 @@ export default <Environment>{
     const schema = randomUUID()
     const databaseUrl = generateDatabaseUrl(schema)
 
-    console.log(databaseUrl)
-
     process.env.DATABASE_URL = databaseUrl
 
     // to execute commands by terminal
@@ -37,7 +37,9 @@ export default <Environment>{
     return {
       // function teardown execute when complete tests - delete database
       async teardown() {
-        await prisma.$executeRawUnsafe(`DROP SCHEMA IF EXITS ${schema} CASCADE`)
+        await prisma.$executeRawUnsafe(
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
+        )
 
         await prisma.$disconnect()
       },
